@@ -32,8 +32,7 @@ export const captureDefaults: Record<string, CaptureBlock> = {
     body: "Ao se inscrever, você será redirecionado para a aula e também receberá todos os detalhes no E-mail e WhatsApp cadastrados.",
   },
   question: {
-    title:
-      "Por que duas pessoas podem olhar para a mesma Íris e enxergar coisas diferentes?",
+    title: "Por que duas pessoas podem olhar para a mesma Íris e enxergar coisas diferentes?",
     data: {
       paragraphs: [
         "Uma delas procura um sinal no mapa.",

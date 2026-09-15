@@ -15,11 +15,7 @@ export function IrisMark({
         ? { width: size, height: size }
         : { width: size, height: size };
   return (
-    <div
-      aria-hidden
-      className={cn("iris-field relative shrink-0", className)}
-      style={sizeStyle}
-    >
+    <div aria-hidden className={cn("iris-field relative shrink-0", className)} style={sizeStyle}>
       <div
         className="absolute inset-[14%] rounded-full border border-primary/25"
         style={{

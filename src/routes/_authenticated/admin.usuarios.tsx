@@ -5,7 +5,13 @@ import { useServerFn } from "@tanstack/react-start";
 import { Copy, KeyRound, RefreshCw, Trash2, UserPlus } from "lucide-react";
 
 import { AdminShell } from "@/components/admin/admin-shell";
-import { AdminCard, FeedbackLine, FieldGrid, TextField, type Feedback } from "@/components/admin/ui";
+import {
+  AdminCard,
+  FeedbackLine,
+  FieldGrid,
+  TextField,
+  type Feedback,
+} from "@/components/admin/ui";
 import { ErrorState, LoadingState } from "@/components/ds/feedback";
 import { Button } from "@/components/ui/button";
 import {
@@ -28,10 +34,7 @@ import {
 
 export const Route = createFileRoute("/_authenticated/admin/usuarios")({
   head: () => ({
-    meta: [
-      { title: "Usuários — Painel OLHE DIFERENTE" },
-      { name: "robots", content: "noindex" },
-    ],
+    meta: [{ title: "Usuários — Painel OLHE DIFERENTE" }, { name: "robots", content: "noindex" }],
   }),
   component: AdminUsersPage,
 });
@@ -148,11 +151,7 @@ function AdminUsersPage() {
                 <UserPlus className="size-4" />
                 {createMutation.isPending ? "Criando..." : "Criar acesso"}
               </Button>
-              <Button
-                type="button"
-                variant="quiet"
-                onClick={() => setPassword(generatePassword())}
-              >
+              <Button type="button" variant="quiet" onClick={() => setPassword(generatePassword())}>
                 <RefreshCw className="size-4" /> Gerar senha
               </Button>
             </div>

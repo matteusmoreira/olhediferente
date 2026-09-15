@@ -2,7 +2,13 @@ import type { ReactNode } from "react";
 import { Loader2, AlertTriangle, Inbox, CheckCircle2 } from "lucide-react";
 import { cn } from "@/lib/utils";
 
-export function LoadingState({ label = "Carregando", className }: { label?: string; className?: string }) {
+export function LoadingState({
+  label = "Carregando",
+  className,
+}: {
+  label?: string;
+  className?: string;
+}) {
   return (
     <div
       role="status"

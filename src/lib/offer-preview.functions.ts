@@ -58,7 +58,7 @@ async function currentToken(): Promise<string> {
 
 /** Público: confere o código do link secreto (não devolve o código). */
 export const checkOfferPreviewToken = createServerFn({ method: "POST" })
-  .inputValidator((input: { token: string }) => ({
+  .validator((input: { token: string }) => ({
     token: typeof input?.token === "string" ? input.token.trim() : "",
   }))
   .handler(async ({ data }): Promise<{ valid: boolean }> => {

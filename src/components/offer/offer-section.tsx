@@ -59,10 +59,7 @@ function BlockBackdrop({ value, tone }: { value: string; tone: Band }) {
         src={url}
         alt=""
         loading="lazy"
-        className={cn(
-          "size-full object-cover",
-          tone === "cream" ? "opacity-20" : "opacity-30",
-        )}
+        className={cn("size-full object-cover", tone === "cream" ? "opacity-20" : "opacity-30")}
       />
       <div className={cn("absolute inset-0 bg-gradient-to-r", veil)} />
       <div className={cn("absolute inset-0 bg-gradient-to-t", veil)} />
@@ -71,15 +68,7 @@ function BlockBackdrop({ value, tone }: { value: string; tone: Band }) {
 }
 
 /** Imagem administrável simples (some quando não há imagem cadastrada). */
-function MediaImage({
-  value,
-  alt,
-  className,
-}: {
-  value: string;
-  alt: string;
-  className?: string;
-}) {
+function MediaImage({ value, alt, className }: { value: string; alt: string; className?: string }) {
   const url = useMediaUrl(value);
   if (!url) return null;
   return <img src={url} alt={alt} loading="lazy" className={className} />;
@@ -97,7 +86,6 @@ function TeacherPhoto({ value, alt }: { value: string; alt: string }) {
   }
   return <img src={url} alt={alt} loading="lazy" className="aspect-[4/5] w-full object-cover" />;
 }
-
 
 export function OfferSection() {
   const { block, field, offer } = useOfferContent();
@@ -146,7 +134,9 @@ export function OfferSection() {
               <h2 className="text-title mt-4 text-cream">{transition.title}</h2>
               <p className="text-lede mt-4">{transition.subtitle}</p>
               <GoldRule className="my-8" />
-              <p className="whitespace-pre-line text-base leading-relaxed text-cream/85">{transition.body}</p>
+              <p className="whitespace-pre-line text-base leading-relaxed text-cream/85">
+                {transition.body}
+              </p>
             </Editorial>
           </Reveal>
         </Container>
@@ -192,32 +182,38 @@ export function OfferSection() {
       <Band tone="deep" className="relative overflow-hidden">
         <BlockBackdrop value={field("mechanism", "background_url", "")} tone="deep" />
         <Container width="default" className="relative z-10">
-
           <Reveal>
             <Editorial>
               <p className="text-overline">{field("mechanism", "eyebrow", "")}</p>
               <h2 className="text-title mt-4 text-cream">{mechanism.title}</h2>
-              <p className="whitespace-pre-line mt-4 text-base leading-relaxed text-cream/80">{mechanism.body}</p>
+              <p className="whitespace-pre-line mt-4 text-base leading-relaxed text-cream/80">
+                {mechanism.body}
+              </p>
             </Editorial>
           </Reveal>
 
           <ol className="relative mx-auto mt-12 max-w-3xl border-l border-primary/25 pl-6 sm:pl-10">
-            {field<{ number: string; title: string; body: string }[]>(
-              "mechanism",
-              "steps",
-              [],
-            ).map((step, index) => (
-              <Reveal as="li" key={step.number} delay={index * 90} className="relative pb-10 last:pb-0">
-                <span
-                  aria-hidden
-                  className="absolute -left-[1.65rem] top-1 flex size-6 items-center justify-center rounded-full border border-primary/40 bg-forest-deep text-[0.6rem] text-primary sm:-left-[2.9rem] sm:size-8 sm:text-[0.7rem]"
+            {field<{ number: string; title: string; body: string }[]>("mechanism", "steps", []).map(
+              (step, index) => (
+                <Reveal
+                  as="li"
+                  key={step.number}
+                  delay={index * 90}
+                  className="relative pb-10 last:pb-0"
                 >
-                  {step.number}
-                </span>
-                <h3 className="font-display text-xl text-cream sm:text-2xl">{step.title}</h3>
-                <p className="whitespace-pre-line mt-1 font-sans text-sm text-primary/80">{step.body}</p>
-              </Reveal>
-            ))}
+                  <span
+                    aria-hidden
+                    className="absolute -left-[1.65rem] top-1 flex size-6 items-center justify-center rounded-full border border-primary/40 bg-forest-deep text-[0.6rem] text-primary sm:-left-[2.9rem] sm:size-8 sm:text-[0.7rem]"
+                  >
+                    {step.number}
+                  </span>
+                  <h3 className="font-display text-xl text-cream sm:text-2xl">{step.title}</h3>
+                  <p className="whitespace-pre-line mt-1 font-sans text-sm text-primary/80">
+                    {step.body}
+                  </p>
+                </Reveal>
+              ),
+            )}
           </ol>
         </Container>
       </Band>
@@ -289,7 +285,6 @@ export function OfferSection() {
         </Container>
       </Band>
 
-
       {/* 06 — Estrutura */}
       <Band tone="deep">
         <Container width="default">
@@ -315,7 +310,9 @@ export function OfferSection() {
                     </li>
                   ))}
                 </ul>
-                <p className="whitespace-pre-line mt-6 text-base leading-relaxed text-cream/80">{structure.body}</p>
+                <p className="whitespace-pre-line mt-6 text-base leading-relaxed text-cream/80">
+                  {structure.body}
+                </p>
                 <p className="mt-6 inline-block border border-primary/35 px-4 py-2 font-sans text-xs uppercase tracking-[0.18em] text-primary">
                   {field("structure", "highlight", "")}
                 </p>
@@ -329,7 +326,6 @@ export function OfferSection() {
       <Band tone="cream" className="relative overflow-hidden">
         <BlockBackdrop value={field("phases", "background_url", "")} tone="cream" />
         <Container width="default" className="relative z-10">
-
           <Reveal>
             <h2 className="text-title max-w-2xl text-forest-deep">{phases.title}</h2>
           </Reveal>
@@ -497,7 +493,6 @@ export function OfferSection() {
                     />
                   </div>
                   <div className="min-w-0">
-
                     <h3 className="font-display text-xl leading-tight text-forest-deep sm:text-2xl">
                       {item.title}
                     </h3>
@@ -544,7 +539,12 @@ export function OfferSection() {
           </Reveal>
           <ul className="mt-8 grid gap-x-10 gap-y-4 sm:grid-cols-2">
             {field<string[]>("differentials", "items", []).map((item, index) => (
-              <Reveal as="li" key={item} delay={index * 50} className="border-t border-cream/15 pt-4">
+              <Reveal
+                as="li"
+                key={item}
+                delay={index * 50}
+                className="border-t border-cream/15 pt-4"
+              >
                 <p className="font-display text-lg leading-snug text-cream">{item}</p>
               </Reveal>
             ))}
@@ -562,7 +562,6 @@ export function OfferSection() {
                   value={field("teacher", "media_url", "")}
                   alt={`Retrato do ${teacher.subtitle}`}
                 />
-
               </div>
             </Reveal>
             <Reveal delay={80}>
@@ -613,7 +612,9 @@ export function OfferSection() {
                 <p className="mt-2 text-sm text-cream/80">{offer.installments}</p>
               ) : null}
               {offerBlock.guarantee ? (
-                <p className="whitespace-pre-line mt-2 text-sm text-cream/80">{offerBlock.guarantee}</p>
+                <p className="whitespace-pre-line mt-2 text-sm text-cream/80">
+                  {offerBlock.guarantee}
+                </p>
               ) : null}
 
               <div className="mx-auto mt-7 max-w-sm">
@@ -640,17 +641,15 @@ export function OfferSection() {
             {field<{ q: string; a: string; active?: boolean }[]>("faq", "items", [])
               .filter((item) => item.active !== false && item.q)
               .map((item, index) => (
-
-              <AccordionItem key={item.q} value={`faq-${index}`} className="border-cream/15">
-                <AccordionTrigger className="text-left font-display text-base text-cream sm:text-lg">
-                  {item.q}
-                </AccordionTrigger>
-                <AccordionContent className="text-sm leading-relaxed text-cream/75">
-                  {item.a}
-                </AccordionContent>
-              </AccordionItem>
-            ))}
-
+                <AccordionItem key={item.q} value={`faq-${index}`} className="border-cream/15">
+                  <AccordionTrigger className="text-left font-display text-base text-cream sm:text-lg">
+                    {item.q}
+                  </AccordionTrigger>
+                  <AccordionContent className="text-sm leading-relaxed text-cream/75">
+                    {item.a}
+                  </AccordionContent>
+                </AccordionItem>
+              ))}
           </Accordion>
         </Container>
       </Band>

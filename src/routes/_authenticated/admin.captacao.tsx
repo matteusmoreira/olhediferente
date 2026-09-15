@@ -132,7 +132,8 @@ function AdminCapturePage() {
   }
 
   const b = (key: string): CaptureBlock => blocks[key] ?? {};
-  const d = (key: string): Record<string, unknown> => (blocks[key]?.data ?? {}) as Record<string, unknown>;
+  const d = (key: string): Record<string, unknown> =>
+    (blocks[key]?.data ?? {}) as Record<string, unknown>;
 
   function setBlock(key: string, patch: Partial<CaptureBlock>) {
     setFeedback(null);
@@ -144,7 +145,10 @@ function AdminCapturePage() {
     setDirty(true);
     setBlocks((prev) => ({
       ...(prev ?? {}),
-      [key]: { ...(prev?.[key] ?? {}), data: { ...((prev?.[key]?.data ?? {}) as object), ...patch } },
+      [key]: {
+        ...(prev?.[key] ?? {}),
+        data: { ...((prev?.[key]?.data ?? {}) as object), ...patch },
+      },
     }));
   }
   const str = (key: string, path: string) => String(d(key)[path] ?? "");
@@ -219,7 +223,11 @@ function AdminCapturePage() {
         </AdminCard>
 
         {/* FORMULÁRIO */}
-        <AdminCard title="Formulário de inscrição" description="Textos ao redor do formulário." collapsible>
+        <AdminCard
+          title="Formulário de inscrição"
+          description="Textos ao redor do formulário."
+          collapsible
+        >
           <TextField
             label="Título do formulário"
             value={b("form").title ?? ""}

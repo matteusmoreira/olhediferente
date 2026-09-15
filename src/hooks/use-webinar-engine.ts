@@ -81,7 +81,6 @@ export function useWebinarEngine({
     setVisibleToast(next);
   }, []);
 
-
   useEffect(() => {
     if (!visibleToast) return;
     const timer = window.setTimeout(() => {

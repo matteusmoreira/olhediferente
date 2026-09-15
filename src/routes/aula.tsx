@@ -106,8 +106,6 @@ function WebinarPage() {
           <p className="mt-4 text-center text-xs text-muted-foreground">
             Durante a apresentação, algumas informações poderão aparecer abaixo do vídeo.
           </p>
-
-          <OfferRevealRegion offerUnlocked={offerUnlocked} />
         </div>
       </Container>
 

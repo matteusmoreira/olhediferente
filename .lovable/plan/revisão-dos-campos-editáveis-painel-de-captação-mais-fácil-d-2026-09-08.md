@@ -12,6 +12,7 @@ exige rolar a página inteira para salvar.
 ## O que será feito
 
 ### 1. Respeitar as quebras de linha em toda a página de captação
+
 Todos os textos longos passam a exibir parágrafos e linhas em branco exatamente como
 você digitou: subheadline do topo, microcopy do formulário, textos da segunda inscrição,
 descrições dos itens de "Nesta aula você vai entender", itens das listas, biografia e
@@ -19,7 +20,9 @@ frase de encerramento do professor, fechamento do manifesto, respostas do FAQ e 
 da chamada final. O mesmo tratamento é aplicado na página da oferta em /aula.
 
 ### 2. Revisão campo a campo: tudo que se edita, aparece
+
 Passagem completa comparando cada campo do painel com o que a página realmente usa:
+
 - Imagem principal (íris) do topo: hoje o topo usa o vídeo, então esse campo não tem
   efeito. Vira campo de imagem de fallback (usada quando o vídeo não puder tocar) e
   ganha explicação no painel, em vez de ficar mudo.
@@ -29,10 +32,12 @@ Passagem completa comparando cada campo do painel com o que a página realmente 
   claro no painel. Nenhum campo editável fica sem efeito.
 
 ### 3. Botão "Salvar alterações" fixo no topo
+
 Barra de ações fixa no topo do painel, com o botão de salvar, o aviso de "alterações
 não salvas" e a mensagem de sucesso/erro. O botão do rodapé continua existindo.
 
 ### 4. Cada bloco vira um accordion
+
 Hero, Formulário, A grande pergunta, O que você vai descobrir, Para quem é, Para quem
 não é, Professor, Manifesto, Segunda inscrição, FAQ e Chamada final passam a ser seções
 que você abre e fecha. Todas começam fechadas, com um resumo curto no cabeçalho, e o
@@ -52,5 +57,6 @@ oferta, para ficar consistente.
   professor e para o fallback do topo.
 
 ## Fora de escopo
+
 Banco de dados, engine temporal, player, checkout, copy e o layout já aprovado do topo
 permanecem como estão.

@@ -16,13 +16,13 @@ A página `/aula` real continua exatamente como está (oferta só aparece no mom
 
 Nova aba/blocos de imagem no painel de Oferta, todos com o mesmo campo de envio de imagem que você já usa (arrasta/escolhe arquivo, pré-visualiza, remove):
 
-| Onde aparece na página | O que você configura |
-| --- | --- |
-| "O coração da formação — O Olhar Clínico Integrativo" | Imagem de fundo do bloco |
-| "Esta formação foi criada para quem..." | Imagem ilustrativa ao lado do texto (desktop) |
-| "As 4 fases da formação" | Imagem de fundo suave do bloco |
-| Presentes em destaque (Manual, Árvore Genealógica, Constelação, Voucher) | Imagem de capa de cada presente |
-| Professor Marcos Dias (bloco final) | Foto do professor (hoje o campo existe, mas só aceita texto e não mostra imagem enviada) |
+| Onde aparece na página                                                   | O que você configura                                                                     |
+| ------------------------------------------------------------------------ | ---------------------------------------------------------------------------------------- |
+| "O coração da formação — O Olhar Clínico Integrativo"                    | Imagem de fundo do bloco                                                                 |
+| "Esta formação foi criada para quem..."                                  | Imagem ilustrativa ao lado do texto (desktop)                                            |
+| "As 4 fases da formação"                                                 | Imagem de fundo suave do bloco                                                           |
+| Presentes em destaque (Manual, Árvore Genealógica, Constelação, Voucher) | Imagem de capa de cada presente                                                          |
+| Professor Marcos Dias (bloco final)                                      | Foto do professor (hoje o campo existe, mas só aceita texto e não mostra imagem enviada) |
 
 Cada imagem de fundo entra com opacidade suave, máscara e overlay, no mesmo tratamento usado na página inicial: nunca compete com o texto, nunca distorce (recorte proporcional) e some/simplifica no celular.
 

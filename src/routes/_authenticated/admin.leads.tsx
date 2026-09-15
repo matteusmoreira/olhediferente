@@ -158,7 +158,13 @@ function AdminLeadsPage() {
           title="Filtros"
           description={`${filtered.length} inscrição(ões) no filtro atual.`}
           actions={
-            <Button type="button" variant="quiet" size="sm" onClick={exportCsv} disabled={!filtered.length}>
+            <Button
+              type="button"
+              variant="quiet"
+              size="sm"
+              onClick={exportCsv}
+              disabled={!filtered.length}
+            >
               <Download className="size-4" /> EXPORTAR CSV
             </Button>
           }

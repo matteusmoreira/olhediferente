@@ -85,7 +85,8 @@ function AdminSimulacaoPage() {
         is_active: value.isActive,
         payload: {
           message: value.message.trim() || DEFAULT_PURCHASE_MESSAGE,
-          display_duration: Number(value.duration) > 0 ? Number(value.duration) : DEFAULT_DISPLAY_DURATION,
+          display_duration:
+            Number(value.duration) > 0 ? Number(value.duration) : DEFAULT_DISPLAY_DURATION,
         },
       };
 
@@ -170,7 +171,6 @@ function AdminSimulacaoPage() {
 
   const events = eventsQuery.data ?? [];
 
-
   return (
     <AdminShell title="Simulação" description="Eventos simulados da aula">
       <div className="grid gap-8 lg:grid-cols-[minmax(0,1fr)_320px]">
@@ -216,7 +216,6 @@ function AdminSimulacaoPage() {
                     disabled={remove.isPending}
                     onConfirm={() => remove.mutate(event.id)}
                   />
-
                 </li>
               ))}
             </ul>
@@ -365,7 +364,6 @@ function AdminSimulacaoPage() {
           {createSequence.isPending ? "Criando…" : "CRIAR SEQUÊNCIA"}
         </Button>
       </section>
-
     </AdminShell>
   );
 }

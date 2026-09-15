@@ -58,16 +58,14 @@ function AdminSettingsPage() {
       if (base && !/^https?:\/\//i.test(base)) {
         throw new Error("A URL base deve começar com http:// ou https://");
       }
-      const { error } = await supabase
-        .from("site_settings")
-        .upsert(
-          {
-            key: SITE_SETTINGS_KEY,
-            value: value as unknown as never,
-            is_public: true,
-          },
-          { onConflict: "key" },
-        );
+      const { error } = await supabase.from("site_settings").upsert(
+        {
+          key: SITE_SETTINGS_KEY,
+          value: value as unknown as never,
+          is_public: true,
+        },
+        { onConflict: "key" },
+      );
       if (error) throw error;
     },
     onSuccess: () => {

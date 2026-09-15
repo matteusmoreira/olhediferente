@@ -32,7 +32,8 @@ export function BroadcastActivity({
   viewerSource = "simulation",
   className,
 }: BroadcastActivityProps) {
-  const hasViewers = typeof viewerCount === "number" && Number.isFinite(viewerCount) && viewerCount > 0;
+  const hasViewers =
+    typeof viewerCount === "number" && Number.isFinite(viewerCount) && viewerCount > 0;
   if (!enabled || !hasViewers) return null;
 
   return (

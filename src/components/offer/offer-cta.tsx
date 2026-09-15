@@ -26,7 +26,10 @@ export function OfferCta({
       <button
         type="button"
         disabled
-        className={cn(base, "cursor-not-allowed border border-primary/30 bg-primary/10 text-primary/70")}
+        className={cn(
+          base,
+          "cursor-not-allowed border border-primary/30 bg-primary/10 text-primary/70",
+        )}
       >
         CHECKOUT A CONFIGURAR
       </button>

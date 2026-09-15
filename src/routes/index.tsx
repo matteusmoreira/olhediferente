@@ -22,8 +22,6 @@ import { useCaptureContent } from "@/lib/capture-content";
 import { useMediaUrl } from "@/lib/media";
 import { SeoFromSettings } from "@/lib/seo";
 
-
-
 const title = "OLHE DIFERENTE — Aula gratuita de Iridologia com o Prof. Marcos Dias";
 const description =
   "Aula online e gratuita sobre Iridologia: aprenda a desenvolver um olhar clínico integrativo com o Professor Marcos Dias, com quase 30 anos de ensino e prática.";
@@ -43,8 +41,7 @@ export const Route = createFileRoute("/")({
 });
 
 function scrollToForm() {
-  const target =
-    document.getElementById("inscricao-final") ?? document.getElementById("inscricao");
+  const target = document.getElementById("inscricao-final") ?? document.getElementById("inscricao");
   target?.scrollIntoView({ behavior: "smooth", block: "center" });
   target?.querySelector<HTMLInputElement>("input")?.focus({ preventScroll: true });
 }
@@ -113,10 +110,6 @@ function HeroBackdrop({ fallbackImage }: { fallbackImage?: string | null }) {
   );
 }
 
-
-
-
-
 function CapturePage() {
   const { block, field } = useCaptureContent();
   const { settings: site } = useSiteSettings();
@@ -129,12 +122,10 @@ function CapturePage() {
   const heroFallback = useMediaUrl(hero.media_url);
   const teacherPhoto = useMediaUrl(block("teacher").media_url);
 
-
   return (
     <main className="relative min-h-screen overflow-x-hidden">
       <SeoFromSettings />
       <IrisGlow />
-
 
       {/* Cabeçalho: apenas a marca. Nenhum acesso administrativo é exposto ao visitante. */}
       <Container width="wide" className="relative flex items-center justify-between py-6">
@@ -162,7 +153,9 @@ function CapturePage() {
                   highlight={field("hero", "highlight", "NOVA FONTE DE RECEITA")}
                 />
               </div>
-              <p className="whitespace-pre-line text-lede mt-4 lg:text-[1rem] lg:leading-[1.5]">{hero.body}</p>
+              <p className="whitespace-pre-line text-lede mt-4 lg:text-[1rem] lg:leading-[1.5]">
+                {hero.body}
+              </p>
 
               <div className="mt-5">
                 <DateStamp date={dateLabel} time={timeLabel} />
@@ -189,7 +182,6 @@ function CapturePage() {
         </Container>
       </Section>
 
-
       {/* A GRANDE PERGUNTA */}
       <Section className="relative border-t border-primary/20 bg-surface-raised">
         <Container width="default">
@@ -205,7 +197,6 @@ function CapturePage() {
                       ? "whitespace-pre-line font-display text-xl leading-relaxed text-foreground sm:text-2xl"
                       : "whitespace-pre-line text-lede"
                   }
-
                 >
                   {paragraph}
                 </p>
@@ -236,9 +227,11 @@ function CapturePage() {
           </Reveal>
 
           <ol className="mt-14 space-y-14">
-            {field<
-              Array<{ number: string; title: string; body: string; steps?: string[] }>
-            >("discover", "items", []).map((item, index) => (
+            {field<Array<{ number: string; title: string; body: string; steps?: string[] }>>(
+              "discover",
+              "items",
+              [],
+            ).map((item, index) => (
               <Reveal as="li" key={item.number} delay={index * 60}>
                 <div className="grid gap-4 border-t border-border/50 pt-8 sm:grid-cols-[6rem_1fr] sm:gap-8">
                   <span className="font-display text-4xl leading-none text-primary/70 sm:text-5xl">
@@ -281,7 +274,9 @@ function CapturePage() {
             {field<string[]>("audience", "items", []).map((item, index) => (
               <Reveal as="li" key={item} delay={index * 40} className="flex gap-4">
                 <Eye className="mt-1 size-4 shrink-0 text-primary" aria-hidden />
-                <span className="whitespace-pre-line text-base leading-relaxed text-foreground/90">{item}</span>
+                <span className="whitespace-pre-line text-base leading-relaxed text-foreground/90">
+                  {item}
+                </span>
               </Reveal>
             ))}
           </ul>
@@ -295,7 +290,10 @@ function CapturePage() {
             <h2 className="text-heading text-muted-foreground">{block("not_audience").title}</h2>
             <ul className="mt-6 space-y-3">
               {field<string[]>("not_audience", "items", []).map((item) => (
-                <li key={item} className="flex gap-4 whitespace-pre-line text-base text-muted-foreground">
+                <li
+                  key={item}
+                  className="flex gap-4 whitespace-pre-line text-base text-muted-foreground"
+                >
                   <Minus className="mt-2 size-3 shrink-0 text-muted-foreground/60" aria-hidden />
                   {item}
                 </li>
@@ -406,7 +404,10 @@ function CapturePage() {
       </Section>
 
       {/* SEGUNDA CAPTURA */}
-      <Section id="inscricao-final" className="relative overflow-hidden border-t border-border/50 bg-background">
+      <Section
+        id="inscricao-final"
+        className="relative overflow-hidden border-t border-border/50 bg-background"
+      >
         <div aria-hidden className="absolute inset-0">
           <img
             src={signupIris.url}
@@ -423,13 +424,18 @@ function CapturePage() {
           <div className="grid min-w-0 items-start gap-12 lg:grid-cols-2">
             <Reveal>
               <h2 className="text-title text-foreground">{block("second_capture").title}</h2>
-              <p className="whitespace-pre-line text-lede mt-5 max-w-lg">{block("second_capture").body}</p>
+              <p className="whitespace-pre-line text-lede mt-5 max-w-lg">
+                {block("second_capture").body}
+              </p>
               <div className="mt-8">
                 <DateStamp date={dateLabel} time={timeLabel} />
               </div>
             </Reveal>
 
-            <Reveal delay={100} className="min-w-0 rounded-sm border border-border/70 bg-card/70 p-5 backdrop-blur shadow-[var(--shadow-elevated)] sm:p-6">
+            <Reveal
+              delay={100}
+              className="min-w-0 rounded-sm border border-border/70 bg-card/70 p-5 backdrop-blur shadow-[var(--shadow-elevated)] sm:p-6"
+            >
               <h3 className="text-heading text-foreground">{form.title}</h3>
               <div className="mt-5">
                 <LeadForm
@@ -472,7 +478,9 @@ function CapturePage() {
             <h2 className="text-title mx-auto max-w-3xl text-foreground">
               {block("final_cta").title}
             </h2>
-            <p className="whitespace-pre-line text-lede mx-auto mt-4 max-w-2xl">{block("final_cta").subtitle}</p>
+            <p className="whitespace-pre-line text-lede mx-auto mt-4 max-w-2xl">
+              {block("final_cta").subtitle}
+            </p>
             <GoldRule className="mx-auto my-10 max-w-xs" />
             <p className="whitespace-pre-line mx-auto max-w-xl text-base text-foreground/90">
               {block("final_cta").body}
@@ -493,10 +501,12 @@ function CapturePage() {
       </Section>
 
       <footer className="border-t border-border/60 py-10">
-        <Container width="wide" className="flex flex-col gap-2 sm:flex-row sm:items-center sm:justify-between">
+        <Container
+          width="wide"
+          className="flex flex-col gap-2 sm:flex-row sm:items-center sm:justify-between"
+        >
           <span className="font-display text-sm uppercase tracking-[0.3em] text-primary">
             {site.projectName}
-
           </span>
           <span className="text-xs uppercase tracking-[0.2em] text-muted-foreground">
             {site.footerText || `Professor ${site.teacherName}`}

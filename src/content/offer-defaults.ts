@@ -20,10 +20,8 @@ export type OfferBlock = {
 
 export const offerDefaults: Record<string, OfferBlock> = {
   transition: {
-    title:
-      "Agora você já entendeu que aprender Iridologia não significa decorar um mapa.",
-    subtitle:
-      "Significa aprender a observar, interpretar, integrar e atuar com responsabilidade.",
+    title: "Agora você já entendeu que aprender Iridologia não significa decorar um mapa.",
+    subtitle: "Significa aprender a observar, interpretar, integrar e atuar com responsabilidade.",
     body: "E foi exatamente para transformar esse conhecimento em uma capacidade profissional estruturada que nasceu a Formação Profissional em Iridologia Clínica.",
     data: { eyebrow: "O PRÓXIMO PASSO" },
   },

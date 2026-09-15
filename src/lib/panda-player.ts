@@ -22,14 +22,7 @@ export type PandaState = {
 };
 
 export type PandaEvent =
-  | "ready"
-  | "error"
-  | "play"
-  | "pause"
-  | "timeupdate"
-  | "seeking"
-  | "seeked"
-  | "ended";
+  "ready" | "error" | "play" | "pause" | "timeupdate" | "seeking" | "seeked" | "ended";
 
 type Listener = (state: PandaState, event: PandaEvent) => void;
 
@@ -136,9 +129,11 @@ export class PandaPlayerAdapter {
   }
 
   private sync() {
-    const player = this.instance as
-      | { getCurrentTime?: () => number; getDuration?: () => number; isPaused?: () => boolean }
-      | null;
+    const player = this.instance as {
+      getCurrentTime?: () => number;
+      getDuration?: () => number;
+      isPaused?: () => boolean;
+    } | null;
     if (!player) return;
     const time = player.getCurrentTime?.();
     const duration = player.getDuration?.();

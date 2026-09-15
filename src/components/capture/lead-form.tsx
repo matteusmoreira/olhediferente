@@ -34,13 +34,7 @@ const leadSchema = z.object({
 
 type Errors = Partial<Record<"name" | "email" | "whatsapp", string>>;
 
-const UTM_KEYS = [
-  "utm_source",
-  "utm_medium",
-  "utm_campaign",
-  "utm_content",
-  "utm_term",
-] as const;
+const UTM_KEYS = ["utm_source", "utm_medium", "utm_campaign", "utm_content", "utm_term"] as const;
 
 function collectTracking() {
   if (typeof window === "undefined") return {} as Record<string, string>;
@@ -120,7 +114,7 @@ export function LeadForm({
       return;
     }
 
-    navigate({ to: "/aula" });
+    navigate({ to: "/aula", search: (prev) => prev });
   }
 
   return (
@@ -176,7 +170,10 @@ export function LeadForm({
       </div>
 
       {formError ? (
-        <p role="alert" className="rounded-sm border border-destructive/40 bg-destructive/10 px-3 py-2 text-xs text-foreground">
+        <p
+          role="alert"
+          className="rounded-sm border border-destructive/40 bg-destructive/10 px-3 py-2 text-xs text-foreground"
+        >
           {formError}
         </p>
       ) : null}
@@ -199,7 +196,9 @@ export function LeadForm({
       </Button>
 
       {microcopy ? (
-        <p className="whitespace-pre-line text-xs leading-relaxed text-muted-foreground">{microcopy}</p>
+        <p className="whitespace-pre-line text-xs leading-relaxed text-muted-foreground">
+          {microcopy}
+        </p>
       ) : null}
     </form>
   );

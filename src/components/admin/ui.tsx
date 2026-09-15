@@ -15,12 +15,7 @@ import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Textarea } from "@/components/ui/textarea";
 import { cn } from "@/lib/utils";
-import {
-  ACCEPTED_IMAGE_TYPES,
-  removeImage,
-  uploadImage,
-  useMediaUrl,
-} from "@/lib/media";
+import { ACCEPTED_IMAGE_TYPES, removeImage, uploadImage, useMediaUrl } from "@/lib/media";
 import {
   ArrowDown,
   ArrowUp,
@@ -60,9 +55,7 @@ export function AdminCard({
   const isOpen = collapsible ? open : true;
 
   return (
-    <section
-      className={cn("rounded-lg border border-border/60 bg-card/40 p-5 sm:p-6", className)}
-    >
+    <section className={cn("rounded-lg border border-border/60 bg-card/40 p-5 sm:p-6", className)}>
       <header className="flex flex-wrap items-start justify-between gap-3">
         {collapsible ? (
           <button
@@ -99,7 +92,6 @@ export function AdminCard({
     </section>
   );
 }
-
 
 export function FieldGrid({ children, className }: { children: ReactNode; className?: string }) {
   return <div className={cn("grid gap-5 sm:grid-cols-2", className)}>{children}</div>;
@@ -193,10 +185,7 @@ export function FeedbackLine({ feedback }: { feedback: Feedback }) {
     <p
       role="status"
       aria-live="polite"
-      className={cn(
-        "flex items-center gap-2 text-sm",
-        ok ? "text-success" : "text-destructive",
-      )}
+      className={cn("flex items-center gap-2 text-sm", ok ? "text-success" : "text-destructive")}
     >
       {ok ? <CheckCircle2 className="size-4" /> : <TriangleAlert className="size-4" />}
       {feedback.message}
@@ -271,7 +260,6 @@ export function StickySaveBar({
       </div>
     </div>
   );
-
 }
 
 /* -------------------------------------------------------------------------- */
@@ -503,7 +491,12 @@ export function Repeater<T>({
         </div>
       ))}
 
-      <Button type="button" variant="quiet" size="sm" onClick={() => onChange([...items, makeItem()])}>
+      <Button
+        type="button"
+        variant="quiet"
+        size="sm"
+        onClick={() => onChange([...items, makeItem()])}
+      >
         <Plus className="size-4" /> {addLabel}
       </Button>
     </div>

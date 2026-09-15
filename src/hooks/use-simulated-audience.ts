@@ -1,10 +1,6 @@
 import { useMemo } from "react";
 
-import {
-  VIEWER_UPDATE_STEP,
-  viewerCountAt,
-  type ViewerCheckpoint,
-} from "@/lib/viewer-curve";
+import { VIEWER_UPDATE_STEP, viewerCountAt, type ViewerCheckpoint } from "@/lib/viewer-curve";
 
 /**
  * Audiência SIMULADA derivada do `currentTime` real do player.

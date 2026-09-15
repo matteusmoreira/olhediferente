@@ -6,7 +6,13 @@ import type { QueuedToast } from "@/hooks/use-webinar-engine";
  * ancorado no canto inferior esquerdo no desktop e acima da área segura no mobile,
  * nunca sobre os controles do player.
  */
-export function PurchaseToast({ toast, className }: { toast: QueuedToast | null; className?: string }) {
+export function PurchaseToast({
+  toast,
+  className,
+}: {
+  toast: QueuedToast | null;
+  className?: string;
+}) {
   return (
     <div
       aria-live="polite"

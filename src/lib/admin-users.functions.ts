@@ -12,10 +12,7 @@ export type AdminUser = {
   confirmed: boolean;
 };
 
-async function assertAdmin(context: {
-  supabase: SupabaseClient<Database>;
-  userId: string;
-}) {
+async function assertAdmin(context: { supabase: SupabaseClient<Database>; userId: string }) {
   const { data, error } = await context.supabase.rpc("has_role", {
     _user_id: context.userId,
     _role: "admin",
@@ -65,8 +62,10 @@ export const listAdminUsers = createServerFn({ method: "GET" })
 
 export const createAdminUser = createServerFn({ method: "POST" })
   .middleware([requireSupabaseAuth])
-  .inputValidator((input: { email: string; password: string }) => {
-    const email = String(input.email ?? "").trim().toLowerCase();
+  .validator((input: { email: string; password: string }) => {
+    const email = String(input.email ?? "")
+      .trim()
+      .toLowerCase();
     const password = String(input.password ?? "");
     if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) throw new Error("Informe um e-mail válido.");
     if (password.length < 8) throw new Error("A senha deve ter pelo menos 8 caracteres.");
@@ -116,10 +115,9 @@ export const createAdminUser = createServerFn({ method: "POST" })
     return { id: userId, email: data.email };
   });
 
-
 export const resetAdminPassword = createServerFn({ method: "POST" })
   .middleware([requireSupabaseAuth])
-  .inputValidator((input: { userId: string; password: string }) => {
+  .validator((input: { userId: string; password: string }) => {
     const userId = String(input.userId ?? "");
     const password = String(input.password ?? "");
     if (!userId) throw new Error("Usuário inválido.");
@@ -140,7 +138,7 @@ export const resetAdminPassword = createServerFn({ method: "POST" })
 
 export const removeAdminUser = createServerFn({ method: "POST" })
   .middleware([requireSupabaseAuth])
-  .inputValidator((input: { userId: string }) => {
+  .validator((input: { userId: string }) => {
     const userId = String(input.userId ?? "");
     if (!userId) throw new Error("Usuário inválido.");
     return { userId };

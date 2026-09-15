@@ -83,7 +83,6 @@ function AdminOfferPage() {
   const [blocks, setBlocks] = useState<Blocks | null>(null);
   const [dirty, setDirty] = useState(false);
 
-
   const rowsQuery = useQuery({
     queryKey: ["admin-offer-content"],
     queryFn: async () => {
@@ -170,14 +169,12 @@ function AdminOfferPage() {
 
   // ---- Bônus: uma única lista com marcação de destaque ----
   const bonusList: Bonus[] = [
-    ...(((d("bonuses")["items"] as Bonus[]) ?? []).map((item) => ({ ...item, featured: false }))),
-    ...(((d("bonuses")["featured"] as Bonus[]) ?? []).map((item) => ({ ...item, featured: true }))),
+    ...((d("bonuses")["items"] as Bonus[]) ?? []).map((item) => ({ ...item, featured: false })),
+    ...((d("bonuses")["featured"] as Bonus[]) ?? []).map((item) => ({ ...item, featured: true })),
   ];
 
   function setBonusList(list: Bonus[]) {
-    const simple = list
-      .filter((item) => !item.featured)
-      .map(({ featured: _f, ...rest }) => rest);
+    const simple = list.filter((item) => !item.featured).map(({ featured: _f, ...rest }) => rest);
     const featured = list
       .filter((item) => item.featured)
       .map(({ featured: _f, body, paragraphs, ...rest }) => ({
@@ -510,7 +507,6 @@ function AdminOfferPage() {
                   />
                   Exibir como presente em destaque
                 </label>
-
               </>
             )}
           </Repeater>
@@ -530,11 +526,11 @@ function AdminOfferPage() {
         </AdminCard>
 
         {/* Demais blocos */}
-        {OFFER_BLOCK_KEYS.filter(
-          (key) => !["offer", "phases", "bonuses", "faq"].includes(key),
-        ).map((key) => (
-          <GenericBlock key={key} blockKey={key} />
-        ))}
+        {OFFER_BLOCK_KEYS.filter((key) => !["offer", "phases", "bonuses", "faq"].includes(key)).map(
+          (key) => (
+            <GenericBlock key={key} blockKey={key} />
+          ),
+        )}
 
         <SaveBar pending={save.isPending} feedback={feedback} />
       </form>
@@ -557,7 +553,6 @@ function fieldLabel(key: string): string {
     quote: "Frase",
     background_url: "Imagem de fundo do bloco",
     media_url: "Imagem ilustrativa do bloco",
-
   };
   return labels[key] ?? key.replace(/_/g, " ").replace(/^./, (c) => c.toUpperCase());
 }
