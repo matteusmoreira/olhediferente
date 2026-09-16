@@ -25,6 +25,7 @@ import { SeoFromSettings } from "@/lib/seo";
 const title = "OLHE DIFERENTE — Aula gratuita de Iridologia com o Prof. Marcos Dias";
 const description =
   "Aula online e gratuita sobre Iridologia: aprenda a desenvolver um olhar clínico integrativo com o Professor Marcos Dias, com quase 30 anos de ensino e prática.";
+const ogImage = "https://www.enelcursosdeterapias.com.br/og-image.jpg";
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -34,7 +35,16 @@ export const Route = createFileRoute("/")({
       { property: "og:title", content: title },
       { property: "og:description", content: description },
       { property: "og:type", content: "website" },
+      { property: "og:image", content: ogImage },
+      { property: "og:image:secure_url", content: ogImage },
+      { property: "og:image:type", content: "image/jpeg" },
+      { property: "og:image:width", content: "1200" },
+      { property: "og:image:height", content: "630" },
+      { property: "og:image:alt", content: "Íris do olho humano — OLHE DIFERENTE com o Professor Marcos Dias" },
       { name: "twitter:card", content: "summary_large_image" },
+      { name: "twitter:title", content: title },
+      { name: "twitter:description", content: description },
+      { name: "twitter:image", content: ogImage },
     ],
   }),
   component: CapturePage,

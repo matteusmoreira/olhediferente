@@ -18,6 +18,7 @@ import { buildPlayerUrl, useWebinarSettings } from "@/lib/webinar-settings";
 const title = "Transmissão — OLHE DIFERENTE";
 const description =
   "Sala de transmissão da aula online OLHE DIFERENTE, com o Professor Marcos Dias.";
+const ogImage = "https://www.enelcursosdeterapias.com.br/og-image.jpg";
 
 export const Route = createFileRoute("/aula")({
   head: () => ({
@@ -27,7 +28,16 @@ export const Route = createFileRoute("/aula")({
       { property: "og:title", content: title },
       { property: "og:description", content: description },
       { property: "og:type", content: "website" },
+      { property: "og:image", content: ogImage },
+      { property: "og:image:secure_url", content: ogImage },
+      { property: "og:image:type", content: "image/jpeg" },
+      { property: "og:image:width", content: "1200" },
+      { property: "og:image:height", content: "630" },
+      { property: "og:image:alt", content: "Íris do olho humano — OLHE DIFERENTE" },
       { name: "twitter:card", content: "summary_large_image" },
+      { name: "twitter:title", content: title },
+      { name: "twitter:description", content: description },
+      { name: "twitter:image", content: ogImage },
     ],
   }),
   component: WebinarPage,

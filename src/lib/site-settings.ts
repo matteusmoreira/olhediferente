@@ -20,10 +20,11 @@ export const siteDefaults: SiteSettings = {
   projectName: "OLHE DIFERENTE",
   teacherName: "Marcos Dias",
   adminEmail: "",
-  baseUrl: "",
-  ogTitle: "",
-  ogDescription: "",
-  ogImage: "",
+  baseUrl: "https://www.enelcursosdeterapias.com.br",
+  ogTitle: "OLHE DIFERENTE — Aula gratuita de Iridologia com o Prof. Marcos Dias",
+  ogDescription:
+    "Aula online e gratuita sobre Iridologia: aprenda a desenvolver um olhar clínico integrativo com o Professor Marcos Dias, com quase 30 anos de ensino e prática.",
+  ogImage: "https://www.enelcursosdeterapias.com.br/og-image.jpg",
   footerText: "",
 };
 
@@ -40,12 +41,12 @@ export function mapSiteSettings(value: unknown): SiteSettings {
   return {
     projectName: str("projectName", siteDefaults.projectName),
     teacherName: str("teacherName", siteDefaults.teacherName),
-    adminEmail: str("adminEmail", ""),
-    baseUrl: str("baseUrl", ""),
-    ogTitle: str("ogTitle", ""),
-    ogDescription: str("ogDescription", ""),
-    ogImage: str("ogImage", ""),
-    footerText: str("footerText", ""),
+    adminEmail: str("adminEmail", siteDefaults.adminEmail),
+    baseUrl: str("baseUrl", siteDefaults.baseUrl),
+    ogTitle: str("ogTitle", siteDefaults.ogTitle),
+    ogDescription: str("ogDescription", siteDefaults.ogDescription),
+    ogImage: str("ogImage", siteDefaults.ogImage),
+    footerText: str("footerText", siteDefaults.footerText),
   };
 }
 

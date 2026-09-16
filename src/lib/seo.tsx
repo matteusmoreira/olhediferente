@@ -34,6 +34,7 @@ export function SeoFromSettings() {
     }
     if (/^https?:\/\//i.test(ogImage)) {
       setMeta('meta[property="og:image"]', "property", "og:image", ogImage);
+      setMeta('meta[property="og:image:secure_url"]', "property", "og:image:secure_url", ogImage);
       setMeta('meta[name="twitter:image"]', "name", "twitter:image", ogImage);
     }
   }, [ogTitle, ogDescription, ogImage]);
